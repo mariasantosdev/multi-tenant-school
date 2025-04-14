@@ -1,6 +1,5 @@
 package com.multi.tenant.school.infra;
 
-import lombok.Builder;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.springframework.stereotype.Component;
 
