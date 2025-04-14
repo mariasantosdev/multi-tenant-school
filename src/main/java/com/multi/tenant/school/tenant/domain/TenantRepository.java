@@ -10,5 +10,5 @@ import java.util.UUID;
 public interface TenantRepository extends CrudRepository<Tenant, UUID> {
     Optional<Tenant> findOneByProductName(String productName);
 
-    boolean existsByProductName(String namespace);
+    boolean existsByProductName(String productName);
 }
