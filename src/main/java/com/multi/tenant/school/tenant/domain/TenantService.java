@@ -6,7 +6,6 @@ import org.flywaydb.core.Flyway;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.util.UUID;
 
 @Component
 @AllArgsConstructor
@@ -17,7 +16,6 @@ public class TenantService {
 
     @Transactional
     public Tenant createTenant(Tenant tenant) {
-        tenant.setId(UUID.randomUUID());
         Tenant saved = tenants.save(tenant);
         initDatabase(tenant.getProductName());
         return saved;

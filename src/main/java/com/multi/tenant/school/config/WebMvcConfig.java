@@ -14,7 +14,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addWebRequestInterceptor(tenantInterceptor);
+        registry.addWebRequestInterceptor(tenantInterceptor).addPathPatterns("/v1/envie");
     }
 
 }

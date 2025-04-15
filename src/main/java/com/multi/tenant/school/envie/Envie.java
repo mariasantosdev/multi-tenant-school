@@ -1,13 +1,11 @@
 package com.multi.tenant.school.envie;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Table(name = "envie")
 public class Envie {
@@ -16,4 +14,8 @@ public class Envie {
     private Long id;
     @Column(unique = true)
     private String name;
+
+    public Envie(String name) {
+        this.name = name;
+    }
 }

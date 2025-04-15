@@ -1,30 +1,27 @@
 package com.multi.tenant.school.tenant.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.UUID;
 
 @Entity
-@Table(name = "tenant", schema = "core")
+@Table(name = "tenant")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
 @Builder
+@Setter
 //TODO talvez adicionar outros atributos aqui que hoje estao no envie
 public class Tenant {
     @Id
-    @EqualsAndHashCode.Include
-    private UUID id = UUID.randomUUID();
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(unique = true)
     private String productName;
 
-    @Column(unique = true)
+    @Column(name="schema_name", unique = true)
     private String schema;
 
     @Column(unique = true)
